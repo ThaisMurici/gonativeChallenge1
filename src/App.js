@@ -3,8 +3,47 @@ import {
   StyleSheet, ScrollView, Text, View, Platform, StatusBar,
 } from 'react-native';
 
-import ReactotronConfig from './config/ReactrotronConfig';
+import './config/ReactrotronConfig';
 import Post from '~/components/Post';
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#7e57c2',
+  },
+  header: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    alignSelf: 'stretch',
+    backgroundColor: '#fff',
+    borderRadius: 3,
+    ...Platform.select({
+      ios: {
+        height: 86,
+        paddingTop: 30,
+      },
+      android: {
+        height: 56,
+        paddingTop: 0,
+      },
+    }),
+  },
+  title: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    margin: 10,
+  },
+  feed: {
+    flex: 1,
+    padding: 15,
+  },
+  status: {
+    backgroundColor: '#fff',
+  },
+});
 
 export default class App extends Component {
   state = {
@@ -55,42 +94,3 @@ export default class App extends Component {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#7e57c2',
-  },
-  header: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    alignSelf: 'stretch',
-    backgroundColor: '#fff',
-    borderRadius: 3,
-    ...Platform.select({
-      ios: {
-        height: 86,
-        paddingTop: 30,
-      },
-      android: {
-        height: 56,
-        paddingTop: 0,
-      },
-    }),
-  },
-  title: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    textAlign: 'center',
-    margin: 10,
-  },
-  feed: {
-    flex: 1,
-    padding: 15,
-  },
-  status: {
-    backgroundColor: '#fff',
-  },
-});
